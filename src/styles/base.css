@@ -1,0 +1,275 @@
+/* ============ Design tokens ============ */
+:root {
+  --navy-950: #081426;
+  --navy-900: #0b1d33;
+  --navy-800: #122a4a;
+  --navy: #142c50;
+  --navy-hover: #1b3a66;
+  --champagne: #c7a468;
+  --champagne-soft: #dcc294;
+  --ink: #17202e;
+  --muted: #5c6572;
+  --muted-2: #8a93a1;
+  --paper: #ffffff;
+  --ivory: #f7f5f1;
+  --mist: #eef2f7;
+  --line: #e5e8ee;
+  --line-soft: #eef0f4;
+
+  --font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+
+  --shadow-soft: 0 10px 30px rgba(11, 29, 51, 0.08);
+  --shadow-card: 0 18px 44px rgba(11, 29, 51, 0.12);
+
+  --container: 1200px;
+  --gutter: 28px;
+}
+
+/* ============ Reset & base ============ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--champagne);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: rgba(199, 164, 104, 0.35);
+}
+
+/* ============ Layout primitives ============ */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.section {
+  padding: 104px 0;
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 0;
+  }
+}
+
+/* ============ Typography ============ */
+.section-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--champagne);
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-size: clamp(1.9rem, 3.6vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.section-heading {
+  max-width: 640px;
+  margin-bottom: 56px;
+}
+
+.section-heading--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* ============ Buttons ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 26px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border: 1px solid transparent;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease,
+    transform 0.25s ease, box-shadow 0.25s ease;
+  white-space: nowrap;
+}
+
+.btn .arrow-icon {
+  transition: transform 0.25s ease;
+}
+
+.btn:hover .arrow-icon {
+  transform: translateX(3px);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background: var(--navy);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: var(--navy-hover);
+  box-shadow: 0 12px 24px rgba(20, 44, 80, 0.22);
+}
+
+.btn--champagne {
+  background: var(--champagne);
+  color: var(--navy-950);
+}
+
+.btn--champagne:hover {
+  background: var(--champagne-soft);
+}
+
+.btn--outline-white {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.btn--outline-white:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.btn--outline-navy {
+  background: transparent;
+  color: var(--navy);
+  border-color: rgba(20, 44, 80, 0.3);
+}
+
+.btn--outline-navy:hover {
+  border-color: var(--navy);
+  background: rgba(20, 44, 80, 0.04);
+}
+
+.btn--ghost-navy {
+  background: transparent;
+  color: var(--navy);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.btn--ghost-navy:hover {
+  color: var(--navy-hover);
+}
+
+.btn--full {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ============ Reveal animation ============ */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal,
+  .hero__title,
+  .hero__sub,
+  .hero__img {
+    transition: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ============ Utilities ============ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.br-desktop {
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .br-desktop {
+    display: none;
+  }
+}
