@@ -1,13 +1,19 @@
 import { images } from './properties.js';
 
-// Hero scroll video: served from the media CDN (range-request capable, CORS open).
-// Preferred encoding for scroll-scrubbing: web-optimized H.264 MP4, ~1080p or lower,
-// moderate bitrate (≈2–6 Mbps), frequent keyframes (≤1s GOP) for fast random access,
-// progressive (non-fragmented) MP4, faststart. The current file (4.1s, ~2.3MB) meets
-// these requirements and is small enough to fully preload in the browser.
+// Hero scroll video — lives in `public/videos/` (served at the site root).
+// Encoded for scroll-scrubbing: H.264 MP4, every frame is an independent
+// I-frame (`-g 1`), `+faststart`, exactly 242 frames (interpolated from the
+// original 97-frame CDN export with FFmpeg minterpolate), original
+// resolution (496×864), aspect ratio and visual quality preserved.
+// If it needs regenerating:
+//   ffmpeg -i hero.mp4 \
+//     -vf "tpad=stop_mode=clone:stop_duration=0.25,minterpolate=fps=5808/97:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:scd=none" \
+//     -c:v libx264 -g 1 -keyint_min 1 -crf 20 -preset slower -pix_fmt yuv420p \
+//     -profile:v high -movflags +faststart -an -frames:v 242 hero-scroll-242.mp4
 export const heroVideo = {
-  src: 'https://media.base44.com/videos/public/6ac514cb0e5632b1adc1ebbe/099b2373e_herovideomp4.mp4',
+  src: '/videos/hero-scroll-242.mp4',
   type: 'video/mp4',
+  totalFrames: 242,
 };
 
 export const site = {

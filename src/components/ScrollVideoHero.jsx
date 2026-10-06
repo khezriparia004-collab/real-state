@@ -5,13 +5,13 @@ import { heroVideo } from '../data/site.js';
 // Scroll distance of the hero experience, in viewport heights. The video is
 // ~4s long; 300vh gives a calm, cinematic pace (100vh of scroll ≈ 1.3s of footage).
 const SCROLL_VH = 300;
+// The hero video contains exactly 242 independently seekable frames
+// (scroll progress 0 → frame 1, progress 1 → frame 242).
+const TOTAL_FRAMES = heroVideo.totalFrames;
 
 // Smoothing factor for lerp between target and rendered time. Higher = more
 // responsive, lower = softer. 0.16 stays tightly attached to the scroll.
 const SMOOTHING = 0.16;
-// Only write video.currentTime when the rendered time has drifted further
-// than one 30fps frame (~33ms) from what was last written — prevents seek floods.
-const SEEK_THRESHOLD = 0.033;
 
 function StaticHero({ title, sub }) {
   return (
@@ -60,12 +60,16 @@ export default function ScrollVideoHero() {
     if (!section || !video) return;
 
     let duration = 0;
+    let frameDuration = 0;
     let current = 0; // rendered (smoothed) time
-    let lastWritten = -1;
+    let lastFrameIndex = -1; // last frame actually written to the video element
     let raf;
 
+    // Mapping is enabled only after metadata is loaded — we never assume
+    // duration, frame rate or frame count beforehand.
     const syncDuration = () => {
       duration = Number.isFinite(video.duration) ? video.duration : 0;
+      frameDuration = duration ? duration / TOTAL_FRAMES : 0;
       if (duration) current = Math.min(current, duration);
     };
     syncDuration();
@@ -83,17 +87,24 @@ export default function ScrollVideoHero() {
 
     const tick = () => {
       const p = progressRef.current;
-      const target = p * duration;
+      // Frame-exact mapping: progress 0 → frame 1 (index 0), progress 1 →
+      // frame 242 (index 241), clamped and quantized to the frame grid.
+      const target = Math.min(Math.max(Math.round(p * (TOTAL_FRAMES - 1)), 0), TOTAL_FRAMES - 1) * frameDuration;
 
       // Smooth interpolation toward the scroll-derived target time.
-      if (duration) {
+      if (frameDuration) {
         current += (target - current) * SMOOTHING;
-        if (Math.abs(target - current) < 0.005) current = target;
-        // Seek only when meaningfully different (flood prevention) and buffered.
-        if (Math.abs(current - lastWritten) > SEEK_THRESHOLD && video.readyState >= 1) {
+        if (Math.abs(target - current) < frameDuration * 0.25) current = target;
+        // Latest-frame-wins: write currentTime only when the rendered frame
+        // index actually changes — no repeated assignments, no seek backlog,
+        // no stale frame requests (each rAF renders only the newest target).
+        const frameIndex = Math.min(Math.max(Math.round(current / frameDuration), 0), TOTAL_FRAMES - 1);
+        if (frameIndex !== lastFrameIndex && video.readyState >= 1) {
           try {
-            video.currentTime = current;
-            lastWritten = current;
+            // Clamp just inside the stream end so frame 242 can never be
+            // skipped by floating-point rounding.
+            video.currentTime = Math.min(frameIndex * frameDuration, duration - 1e-4);
+            lastFrameIndex = frameIndex;
           } catch {
             /* seeking before metadata — ignore, next tick retries */
           }
