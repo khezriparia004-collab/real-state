@@ -1,5 +1,15 @@
 import { images } from './properties.js';
 
+// Hero scroll video: served from the media CDN (range-request capable, CORS open).
+// Preferred encoding for scroll-scrubbing: web-optimized H.264 MP4, ~1080p or lower,
+// moderate bitrate (≈2–6 Mbps), frequent keyframes (≤1s GOP) for fast random access,
+// progressive (non-fragmented) MP4, faststart. The current file (4.1s, ~2.3MB) meets
+// these requirements and is small enough to fully preload in the browser.
+export const heroVideo = {
+  src: 'https://media.base44.com/videos/public/6ac514cb0e5632b1adc1ebbe/099b2373e_herovideomp4.mp4',
+  type: 'video/mp4',
+};
+
 export const site = {
   name: 'HORIZON PROPERTIES',
   phone: '(555) 246-7890',

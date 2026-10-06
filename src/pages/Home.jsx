@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal.jsx';
 import { SectionHeading, ArrowIcon } from '../components/ui.jsx';
+import ScrollVideoHero from '../components/ScrollVideoHero.jsx';
 import AboutSection from '../components/AboutSection.jsx';
 import PropertyCarousel from '../components/PropertyCarousel.jsx';
 import CtaSection from '../components/CtaSection.jsx';
-import { images, featuredProperties } from '../data/properties.js';
+import { featuredProperties } from '../data/properties.js';
 import { services, whyHorizon, stats, team, getAgent } from '../data/site.js';
 
 function WhyIcon({ kind }) {
@@ -25,26 +26,8 @@ function WhyIcon({ kind }) {
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="hero">
-        <img className="hero__img" src={images.heroVilla} alt="Modern luxury villa with infinity pool at blue hour" fetchpriority="high" />
-        <div className="hero__overlay" aria-hidden="true" />
-        <div className="container hero__content">
-          <h1 className="hero__title">
-            Discover Exceptional
-            <br />
-            Homes &amp; Investments
-          </h1>
-          <p className="hero__sub">
-            Premium properties in prime locations. Find your dream home
-            <br className="br-desktop" />
-            or the perfect investment with confidence.
-          </p>
-        </div>
-        <div className="hero__scrollcue" aria-hidden="true">
-          <span />
-        </div>
-      </section>
+      {/* Hero — scroll-driven video experience */}
+      <ScrollVideoHero />
 
       {/* Who We Are */}
       <AboutSection />
