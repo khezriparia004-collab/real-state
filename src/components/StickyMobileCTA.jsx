@@ -11,7 +11,7 @@ export default function StickyMobileCTA() {
       </a>
       <Link to="/contact" className="btn-primary flex-1 !min-h-[56px] text-base">
         <ClipboardList className="w-5 h-5" />
-        Request Service
+        Schedule Service
       </Link>
     </div>
   )

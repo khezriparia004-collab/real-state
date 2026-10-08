@@ -18,7 +18,7 @@ export const services = [
       'Flood prevention and water damage mitigation',
     ],
     icon: 'Siren',
-    image: 'https://images.unsplash.com/photo-1581244277943-fe3a2ad9ed4c?w=800&q=80',
+    image: 'https://images.pexels.com/photos/33388390/pexels-photo-33388390.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Emergency',
   },
   {
@@ -40,7 +40,7 @@ export const services = [
       'Video drain inspection',
     ],
     icon: 'Droplets',
-    image: 'https://images.unsplash.com/photo-1607472586893-edb57e08a723?w=800&q=80',
+    image: 'https://images.pexels.com/photos/220612/pexels-photo-220612.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Residential',
   },
   {
@@ -84,7 +84,7 @@ export const services = [
       'Tank flushing and descaling',
     ],
     icon: 'Flame',
-    image: 'https://images.unsplash.com/photo-1585421514738-01799e263b3a?w=800&q=80',
+    image: 'https://images.pexels.com/photos/7859953/pexels-photo-7859953.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Residential',
   },
   {
@@ -106,7 +106,7 @@ export const services = [
       'Old unit haul-away and disposal',
     ],
     icon: 'Zap',
-    image: 'https://images.unsplash.com/photo-1607400258336-4b2a9ac4d068?w=800&q=80',
+    image: 'https://images.pexels.com/photos/35290675/pexels-photo-35290675.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Residential',
   },
   {
@@ -128,7 +128,7 @@ export const services = [
       'Burst pipe repair',
     ],
     icon: 'GitBranch',
-    image: 'https://images.unsplash.com/photo-1581094712941-3a3e2ad09e9e?w=800&q=80',
+    image: 'https://images.pexels.com/photos/16509869/pexels-photo-16509869.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Residential',
   },
   {
@@ -150,7 +150,7 @@ export const services = [
       'Outdoor faucet and hose bibb repair',
     ],
     icon: 'Wrench',
-    image: 'https://images.unsplash.com/photo-1602491453631-839d5e5e1b1b?w=800&q=80',
+    image: 'https://images.pexels.com/photos/31213992/pexels-photo-31213992.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Residential',
   },
   {
@@ -172,7 +172,7 @@ export const services = [
       'Wax ring replacement',
     ],
     icon: 'Droplet',
-    image: 'https://images.unsplash.com/photo-1620655186558-4aa6dd0a5e8e?w=800&q=80',
+    image: 'https://images.pexels.com/photos/5768318/pexels-photo-5768318.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Residential',
   },
   {
@@ -194,7 +194,7 @@ export const services = [
       'Sewer line leak repair',
     ],
     icon: 'Network',
-    image: 'https://images.unsplash.com/photo-1597007030739-6d2e7172ee1b?w=800&q=80',
+    image: 'https://images.pexels.com/photos/36842620/pexels-photo-36842620.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Residential',
   },
   {

@@ -126,11 +126,51 @@
   .eyebrow {
     @apply inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-electric-600;
   }
+
+  .btn-navy {
+    @apply btn bg-navy-500 text-white hover:bg-navy-400;
+    box-shadow: 0 4px 16px rgba(10, 25, 47, 0.25);
+  }
+
+  .btn-navy:hover {
+    box-shadow: 0 6px 24px rgba(10, 25, 47, 0.35);
+    transform: translateY(-1px);
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Organic image shapes */
+  .blob-1 {
+    border-radius: 58% 42% 55% 45% / 45% 58% 42% 55%;
+  }
+
+  .blob-2 {
+    border-radius: 45% 55% 48% 52% / 55% 48% 52% 45%;
+  }
+
+  /* Scroll-reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
 
   .scrollbar-hide::-webkit-scrollbar {

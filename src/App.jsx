@@ -18,7 +18,7 @@ export default function App() {
     <>
       <ScrollToTop />
       <Navbar />
-      <main className="pt-16 md:pt-20 pb-20 lg:pb-0 min-h-screen">
+      <main className="pt-20 md:pt-24 pb-20 lg:pb-0 min-h-screen">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />

@@ -13,8 +13,7 @@ export const BUSINESS_HOURS = [
 export const NAV_LINKS = [
   { label: 'Home', path: '/' },
   { label: 'Services', path: '/services' },
-  { label: 'About Us', path: '/about' },
-  { label: 'Emergency Plumbing', path: '/emergency' },
+  { label: 'About', path: '/about' },
   { label: 'Reviews', path: '/reviews' },
   { label: 'FAQ', path: '/faq' },
   { label: 'Contact', path: '/contact' },

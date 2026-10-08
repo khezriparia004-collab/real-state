@@ -16,12 +16,12 @@ export default function Navbar() {
   }, [])
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass shadow-glass' : 'bg-transparent'
-      }`}
-    >
-      <nav className="container-x flex items-center justify-between h-16 md:h-20">
+    <header className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-5 pt-3">
+      <nav
+        className={`container-x flex items-center justify-between h-16 md:h-[4.25rem] rounded-2xl transition-all duration-300 px-3 ${
+          scrolled ? 'glass shadow-glass' : 'bg-transparent'
+        }`}
+      >
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 shrink-0">
           <div className="w-10 h-10 rounded-xl bg-electric-500 flex items-center justify-center shadow-glow">
@@ -81,8 +81,8 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="lg:hidden glass border-t border-steel-200 animate-fade-in">
-          <div className="container-x py-4 flex flex-col gap-1">
+        <div className="lg:hidden glass border border-white/50 shadow-glass rounded-2xl mt-2 animate-fade-in">
+          <div className="py-4 px-2 flex flex-col gap-1">
             {NAV_LINKS.map((link) => {
               const active = location.pathname === link.path
               return (

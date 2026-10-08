@@ -52,7 +52,7 @@ export default function About() {
             <div className="relative">
               <div className="rounded-3xl overflow-hidden shadow-card">
                 <img
-                  src="https://images.unsplash.com/photo-1581244277943-fe3a2ad9ed4c?w=800&q=80"
+                  src="https://images.pexels.com/photos/8486923/pexels-photo-8486923.jpeg?auto=compress&cs=tinysrgb&w=900"
                   alt="HVP Plumbing team"
                   className="w-full h-[440px] object-cover"
                 />
@@ -187,7 +187,7 @@ export default function About() {
             <div className="relative">
               <div className="rounded-3xl overflow-hidden shadow-card">
                 <img
-                  src="https://images.unsplash.com/photo-1607402586893-edb57e08a723?w=800&q=80"
+                  src="https://images.pexels.com/photos/16509869/pexels-photo-16509869.jpeg?auto=compress&cs=tinysrgb&w=900"
                   alt="Professional plumbing work"
                   className="w-full h-[400px] object-cover"
                 />
