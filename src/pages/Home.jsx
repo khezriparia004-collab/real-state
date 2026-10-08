@@ -150,16 +150,25 @@ export default function Home() {
             </Reveal>
 
             {/* Right: organic image composition */}
-            <Reveal delay={120} className="relative mt-4 lg:mt-0">
-              <div className="absolute -top-8 -right-4 w-48 h-48 md:w-64 md:h-64 bg-electric-500/15 blob-2" />
-              <div className="absolute -bottom-10 -left-6 w-40 h-40 md:w-56 md:h-56 bg-navy-500 blob-1 opacity-[0.08]" />
-              <div className="relative blob-1 overflow-hidden shadow-[0_32px_80px_rgba(10,25,47,0.25)]">
-                <img
-                  src={HERO_IMG}
-                  alt="Professional HVP plumber at work"
-                  className="w-full h-[400px] sm:h-[480px] lg:h-[560px] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-500/30 via-transparent to-transparent" />
+            <Reveal delay={120} className="relative mt-6 lg:mt-0">
+              <div className="relative lg:-mr-12 xl:-mr-20 lg:-mt-4">
+                {/* Layered organic composition: navy backing + electric accent */}
+                <div className="absolute top-10 -left-5 md:top-14 md:-left-9 w-[90%] h-[90%] bg-navy-500 blob-2" />
+                <div className="absolute -bottom-5 -right-3 w-32 h-32 md:w-44 md:h-44 bg-electric-500/25 blob-1" />
+                <svg
+                  className="absolute -bottom-9 -left-4 w-3/5 text-electric-500 pointer-events-none"
+                  viewBox="0 0 320 140" fill="none" aria-hidden="true"
+                >
+                  <path d="M310 12C250 108 130 132 8 96" stroke="currentColor" strokeWidth="12" strokeLinecap="round" />
+                </svg>
+                <div className="relative blob-1 overflow-hidden shadow-[0_36px_90px_rgba(10,25,47,0.3)]">
+                  <img
+                    src={HERO_IMG}
+                    alt="Professional HVP plumber at work"
+                    className="w-full h-[420px] sm:h-[500px] lg:h-[580px] object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-500/30 via-transparent to-transparent" />
+                </div>
               </div>
               <div className="absolute -bottom-6 left-4 sm:left-10 glass rounded-2xl p-4 shadow-glass flex items-center gap-3">
                 <div className="w-11 h-11 rounded-xl bg-navy-500 flex items-center justify-center shrink-0">
@@ -190,13 +199,22 @@ export default function Home() {
         <div className="container-x py-20 md:py-32">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <Reveal className="lg:col-span-5 relative">
-              <div className="absolute -top-6 -left-6 w-24 h-24 bg-electric-500 blob-1 opacity-90 hidden md:block" />
-              <div className="relative blob-2 overflow-hidden shadow-[0_28px_64px_rgba(10,25,47,0.18)]">
-                <img
-                  src={EDITORIAL_IMG}
-                  alt="HVP plumber repairing pipes"
-                  className="w-full h-[380px] md:h-[500px] object-cover"
-                />
+              <div className="relative lg:-ml-12 xl:-ml-20">
+                <div className="absolute -top-6 -left-6 w-24 h-24 bg-electric-500 blob-1 opacity-90 hidden md:block" />
+                <div className="absolute bottom-8 -right-5 md:-right-8 w-[88%] h-[88%] bg-navy-500 blob-1" />
+                <svg
+                  className="absolute -top-8 -right-2 w-1/2 text-electric-500 pointer-events-none"
+                  viewBox="0 0 240 120" fill="none" aria-hidden="true"
+                >
+                  <path d="M10 110C80 20 170 6 232 44" stroke="currentColor" strokeWidth="10" strokeLinecap="round" />
+                </svg>
+                <div className="relative blob-2 overflow-hidden shadow-[0_28px_64px_rgba(10,25,47,0.18)]">
+                  <img
+                    src={EDITORIAL_IMG}
+                    alt="HVP plumber repairing pipes"
+                    className="w-full h-[380px] md:h-[500px] object-cover"
+                  />
+                </div>
               </div>
               <div className="absolute -bottom-8 right-6 glass rounded-2xl px-5 py-4 shadow-glass hidden sm:flex items-center gap-3">
                 <Clock className="w-5 h-5 text-electric-600 shrink-0" />
